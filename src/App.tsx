@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-// Simple type definition
 interface Quote {
   q: string;
   a: string;
 }
 
 function App() {
-  // Simple state management
   const [quote, setQuote] = useState<Quote | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Handle dark mode toggle
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -22,7 +19,6 @@ function App() {
     }
   }, [isDarkMode]);
 
-  // Fetch quote from API
   useEffect(() => {
     fetchQuote();
   }, []);
@@ -57,7 +53,6 @@ function App() {
     }
   };
 
-  // Simple loading component
   const LoadingSpinner = () => (
     <div className="text-center">
       <div className="w-12 h-12 border-4 border-blue-200 rounded-full animate-spin mx-auto"></div>
@@ -65,7 +60,6 @@ function App() {
     </div>
   );
 
-  // Simple error component
   const ErrorMessage = () => (
     <div className="text-center">
       <p className="text-xl mb-4 text-red-500">{error}</p>
@@ -78,7 +72,6 @@ function App() {
     </div>
   );
 
-  // Simple quote display component
   const QuoteDisplay = () => (
     <div className="max-w-2xl mx-auto">
       <div className={`p-8 rounded-lg border shadow-lg ${
@@ -108,7 +101,6 @@ function App() {
     </div>
   );
 
-  // Simple toggle component
   const ThemeToggle = () => (
     <div className="text-center mt-8">
       <button
@@ -125,19 +117,16 @@ function App() {
       isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'
     }`}>
       <div className="container mx-auto px-4 py-8">
-        {/* Simple header */}
         <h1 className="text-4xl font-bold text-center mb-8">
           Quote of the Day
         </h1>
         
-        {/* Main content area */}
         <div className="flex justify-center items-center min-h-96">
           {loading && <LoadingSpinner />}
           {error && <ErrorMessage />}
           {quote && <QuoteDisplay />}
         </div>
         
-        {/* Theme toggle */}
         <ThemeToggle />
       </div>
     </div>

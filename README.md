@@ -1,6 +1,6 @@
 # Quote of the Day
 
-A simple React TypeScript application that displays the daily quote from ZenQuotes API with a dark/light mode toggle.
+A React TypeScript application that displays the daily quote from ZenQuotes API with a dark/light mode toggle.
 
 ## Features
 
